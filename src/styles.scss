@@ -20,8 +20,12 @@ body {
 }
 
 .col-flag {
-    cursor: default;
+    cursor: default !important;
     width:6%;
+
+    &:hover {
+        background-color: #f9fafb !important;
+    }
 }
 .col-country {
     width: 30%;
@@ -34,4 +38,9 @@ body {
 }
 .col-lang {
     width: 14%;
+}
+
+.flag-img {
+    width: 50px;
+    height: auto;
 }

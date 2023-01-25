@@ -101,11 +101,11 @@ const getAllUrlParams = () => {
 
 
 const createCountryRowHtml = (country: Country) => {
-    // <img src="https://countryflagsapi.com/png/${country.code}" alt="${country.name}">
+    
     return `
         <tr class="table-row">
             <td>
-                
+                <img crossorigin="anonymous" src="https://countryflagsapi.com/png/${country.code}" alt="${country.name}" class="flag-img">
             </td>
             <td>
                 ${country.name}
@@ -234,8 +234,6 @@ const fetchCountrys = () => {
         params: getAllUrlParams()
 
     }).then((res) => {
-
-    console.log(res)
 
         if(res.headers.link) {
 
