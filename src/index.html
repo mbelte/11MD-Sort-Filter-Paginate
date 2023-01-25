@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+    <link async rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css" />
+    <link rel="stylesheet" href="/styles.css">
+    <title>List of countries</title>
+</head>
+
+<body>
+
+    <main class="main-wrap">
+
+        <div class="search-wrap">
+            <div class="ui icon input">
+                <input type="text" name="name" placeholder="Search country" class="js-search">
+                <i class="search icon"></i>
+            </div>
+            <div class="ui icon input">
+                <input type="text" name="capital" placeholder="Search capital" class="js-search">
+                <i class="search icon"></i>
+            </div>
+            <div class="ui icon input">
+                <input type="text" name="currency.name" placeholder="Search currency" class="js-search">
+                <i class="search icon"></i>
+            </div>
+            <div class="ui icon input">
+                <input type="text" name="language.name" placeholder="Search language" class="js-search">
+                <i class="search icon"></i>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table class="ui sortable celled padded table">
+                <thead>
+                    <tr class="js-sort-control" data-sort-by="name" data-sort-order="asc">
+                        <th class="col-flag"></th>
+                        <th class="col-country sorted ascending js-sortable" data-sort="name">Country</th>
+                        <th class="col-capital js-sortable" data-sort="capital">Capital</th>
+                        <th class="col-currency js-sortable" data-sort="currency.name">Currency</th>
+                        <th class="col-lang js-sortable" data-sort="language.name">Language</th>
+                    </tr>
+                </thead>
+                <tbody class="js-country-table-body">
+
+                </tbody>
+                <tfoot class="js-pagination">
+                    
+                </tfoot>
+            </table>
+        </div>
+    </main>
+
+    <script src="/scripts.js"></script>
+</body>
+
+</html>
