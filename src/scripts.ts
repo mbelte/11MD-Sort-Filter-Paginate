@@ -1,5 +1,3 @@
-import axios from 'axios'
-
 import { selectors, pages } from './selectors'
 import { sortCountries, fetchCountries, changePage } from './func'
 
@@ -23,13 +21,11 @@ selectors.search.forEach(input => {
 selectors.tFoot.addEventListener('click', changePage)
 
 selectors.searchBtn.addEventListener('click', () => {
-
     pages.current = 1
     fetchCountries()
 })
 
 selectors.searchClearBtn.addEventListener('click', () => {
-
     selectors.search.forEach(inp => inp.value = '')
 
     pages.current = 1

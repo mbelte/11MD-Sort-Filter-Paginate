@@ -30,7 +30,7 @@ const getSortParams = () => {
 }
 
 
-const getSearchParams = () => {
+const getInputParams = () => {
     let params = {}
 
     selectors.search.forEach(input => {
@@ -46,7 +46,7 @@ const getSearchParams = () => {
 
 const getAllUrlParams = () => {
     const   sort = getSortParams(),
-            search = getSearchParams()
+            search = getInputParams()
     
     return {
         ...search,
@@ -89,7 +89,7 @@ const pagination = () => {
 
     let pagesBtns = ''
 
-    for(let i = 1; i <= pages.last; i++) {
+    for (let i = 1; i <= pages.last; i++) {
         let active = i === pages.current ? ' active' : ''
 
         pagesBtns += `<a class="js-page item${active}" data-page="${i}">${i}</a>`
@@ -152,43 +152,50 @@ const sortCountries = (e: PointerEvent) => {
 }
 
 
-const fetchCountries = () => {
+const createErrorHtml = (msg: string) => {
+    return `
+    <tr>
+        <td colspan="5">
+            <div class="ui red message">
+                ${msg}
+            </div>  
+        </td>
+    </tr>  
+    `
+}
 
+
+const fetchCountries = () => {
     const loader = selectors.loader.classList
 
     loader.add('active')
 
     axios.get<Country[]>(host, {
-
         params: getAllUrlParams()
-
-    }).then((res) => {
-
-        if(res.headers.link) {
-
-            const   pagesLnk = res.headers.link.split(',')
+    }).then(({data, headers}) => {
+        if (headers.link) {
+            const   pagesLnk = headers.link.split(',')
             pages.last = Number(pagesLnk.at(-1).match(/(?<=page=)(.*)(?=>)/)[0])
-
         } else {
-
             pages.last = 1
-
         }
 
         selectors.tableBody.innerHTML = ''
 
         pagination()
         
-        res.data.forEach(country => {
-        
+        data.forEach(country => {        
             selectors.tableBody.innerHTML += createCountryRowHtml(country)
         })
 
         setTimeout(() => {
-            loader.remove('active')            
+            loader.remove('active')
         }, 300)
 
-    }).catch(e => alert(e.message))
+    }).catch(e => {
+        selectors.tableBody.innerHTML = createErrorHtml(e.message)
+        loader.remove('active')
+    })
 }
 
 
@@ -198,10 +205,8 @@ const changePage = (e: PointerEvent) => {
             page = Number(target.closest('.js-page').getAttribute('data-page'))
     
     if(page !== pages.current) {
-
         pages.current = page
         fetchCountries()
-
     }
 }
 
