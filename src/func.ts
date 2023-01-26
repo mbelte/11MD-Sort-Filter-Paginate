@@ -186,7 +186,7 @@ const fetchCountries = () => {
 
         setTimeout(() => {
             loader.remove('active')            
-        }, 500)
+        }, 300)
 
     }).catch(e => alert(e.message))
 }
