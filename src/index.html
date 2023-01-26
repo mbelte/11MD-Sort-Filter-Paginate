@@ -15,51 +15,56 @@
 <body>
 
     <main class="main-wrap">
+        <div class="content">
+            <div class="search-wrap">
+                <div class="search-inputs">
+                    <div class="ui input">
+                        <input type="text" name="name" placeholder="Search country" class="js-search">
+                    </div>
+                    <div class="ui input">
+                        <input type="text" name="capital" placeholder="Search capital" class="js-search">
+                    </div>
+                    <div class="ui input">
+                        <input type="text" name="currency.name" placeholder="Search currency" class="js-search">
+                    </div>
+                    <div class="ui input">
+                        <input type="text" name="language.name" placeholder="Search language" class="js-search">
+                    </div>
+                </div>
 
-        <div class="search-wrap">
-            <div class="search-inputs">
-                <div class="ui input">
-                    <input type="text" name="name" placeholder="Search country" class="js-search">
-                </div>
-                <div class="ui input">
-                    <input type="text" name="capital" placeholder="Search capital" class="js-search">
-                </div>
-                <div class="ui input">
-                    <input type="text" name="currency.name" placeholder="Search currency" class="js-search">
-                </div>
-                <div class="ui input">
-                    <input type="text" name="language.name" placeholder="Search language" class="js-search">
+                <div class="search-btns">
+                    <button class="ui primary button js-search-btn">
+                        Search
+                    </button>
+                    <button class="ui button js-clear-search-btn">
+                        Clear
+                    </button>
                 </div>
             </div>
 
-            <div class="search-btns">
-                <button class="ui primary button js-search-btn">
-                    Search
-                </button>
-                <button class="ui button js-clear-search-btn">
-                    Clear
-                </button>
+            <div class="table-wrap">
+                <table class="ui sortable celled padded table">
+                    <thead>
+                        <tr class="js-sort-control" data-sort-by="name" data-sort-order="asc">
+                            <th class="col-flag"></th>
+                            <th class="col-country sorted ascending js-sortable" data-sort="name">Country</th>
+                            <th class="col-capital js-sortable" data-sort="capital">Capital</th>
+                            <th class="col-currency js-sortable" data-sort="currency.name">Currency</th>
+                            <th class="col-lang js-sortable" data-sort="language.name">Language</th>
+                        </tr>
+                    </thead>
+                    <tbody class="js-country-table-body">
+
+                    </tbody>
+                    <tfoot class="js-pagination">
+
+                    </tfoot>
+                </table>
             </div>
-        </div>
 
-        <div class="table-wrap">
-            <table class="ui sortable celled padded table">
-                <thead>
-                    <tr class="js-sort-control" data-sort-by="name" data-sort-order="asc">
-                        <th class="col-flag"></th>
-                        <th class="col-country sorted ascending js-sortable" data-sort="name">Country</th>
-                        <th class="col-capital js-sortable" data-sort="capital">Capital</th>
-                        <th class="col-currency js-sortable" data-sort="currency.name">Currency</th>
-                        <th class="col-lang js-sortable" data-sort="language.name">Language</th>
-                    </tr>
-                </thead>
-                <tbody class="js-country-table-body">
-
-                </tbody>
-                <tfoot class="js-pagination">
-
-                </tfoot>
-            </table>
+            <div class="ui inverted dimmer js-loader">
+                <div class="ui text loader">Loading</div>
+            </div>
         </div>
     </main>
 

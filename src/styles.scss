@@ -3,9 +3,15 @@ body {
 }
 
 .main-wrap {
+    border-radius: 5px;
     margin: 0 auto;
     padding: 60px 20px;
     width: 1200px;
+}
+
+.content {
+    overflow: hidden;
+    position: relative;
 }
 
 .search-wrap {
