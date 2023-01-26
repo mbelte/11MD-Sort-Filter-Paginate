@@ -23,6 +23,8 @@ type Country = {
 
 const selectors = {
     search: document.querySelectorAll<HTMLInputElement | null>('.js-search'),
+    searchBtn: document.querySelector<HTMLButtonElement | null>('.js-search-btn'),
+    searchClearBtn: document.querySelector<HTMLButtonElement | null>('.js-clear-search-btn'),
 
     tableBody: document.querySelector<HTMLDivElement | null>('.js-country-table-body'),
 
@@ -256,6 +258,15 @@ const fetchCountrys = () => {
         })
     }).catch(e => alert(e.message))
 }
+
+selectors.searchBtn.addEventListener('click', () => {
+    fetchCountrys()
+})
+
+selectors.searchClearBtn.addEventListener('click', () => {
+    selectors.search.forEach(inp => inp.value = '')
+    fetchCountrys()
+})
 
 
 fetchCountrys()

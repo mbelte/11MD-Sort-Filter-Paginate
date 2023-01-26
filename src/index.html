@@ -17,21 +17,28 @@
     <main class="main-wrap">
 
         <div class="search-wrap">
-            <div class="ui icon input">
-                <input type="text" name="name" placeholder="Search country" class="js-search">
-                <i class="search icon"></i>
+            <div class="search-inputs">
+                <div class="ui input">
+                    <input type="text" name="name" placeholder="Search country" class="js-search">
+                </div>
+                <div class="ui input">
+                    <input type="text" name="capital" placeholder="Search capital" class="js-search">
+                </div>
+                <div class="ui input">
+                    <input type="text" name="currency.name" placeholder="Search currency" class="js-search">
+                </div>
+                <div class="ui input">
+                    <input type="text" name="language.name" placeholder="Search language" class="js-search">
+                </div>
             </div>
-            <div class="ui icon input">
-                <input type="text" name="capital" placeholder="Search capital" class="js-search">
-                <i class="search icon"></i>
-            </div>
-            <div class="ui icon input">
-                <input type="text" name="currency.name" placeholder="Search currency" class="js-search">
-                <i class="search icon"></i>
-            </div>
-            <div class="ui icon input">
-                <input type="text" name="language.name" placeholder="Search language" class="js-search">
-                <i class="search icon"></i>
+
+            <div class="search-btns">
+                <button class="ui primary button js-search-btn">
+                    Search
+                </button>
+                <button class="ui button js-clear-search-btn">
+                    Clear
+                </button>
             </div>
         </div>
 
@@ -50,7 +57,7 @@
 
                 </tbody>
                 <tfoot class="js-pagination">
-                    
+
                 </tfoot>
             </table>
         </div>

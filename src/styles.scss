@@ -10,9 +10,23 @@ body {
 
 .search-wrap {
     background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.search-inputs {    
     display: flex;
-    justify-content: space-between;
-    padding: 20px 10px;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+
+.search-btns {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 20px;
 }
 
 .table-row:hover {
@@ -41,6 +55,6 @@ body {
 }
 
 .flag-img {
-    width: 50px;
+    width: 40px;
     height: auto;
 }
